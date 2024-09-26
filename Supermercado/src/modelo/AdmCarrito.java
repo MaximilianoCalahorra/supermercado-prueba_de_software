@@ -97,7 +97,6 @@ public class AdmCarrito
 			}
 			i++;
 		}
-		carritoBuscado.toString();
 		return carritoBuscado;
 	}
 	
