@@ -71,17 +71,17 @@ class AdmCarritoUnitTest
 		ItemCarrito itemCarrito5 = mock(ItemCarrito.class);
 		
 		//Definimos los ítems de cada carrito:
-		List<ItemCarrito> itemsCarrito1 = new ArrayList<ItemCarrito>();
+		List<ItemCarrito> itemsCarrito1 = new ArrayList<>();
 		itemsCarrito1.add(itemCarrito1);
 		itemsCarrito1.add(itemCarrito3);
 		itemsCarrito1.add(itemCarrito5);
 		
-		List<ItemCarrito> itemsCarrito2 = new ArrayList<ItemCarrito>();
+		List<ItemCarrito> itemsCarrito2 = new ArrayList<>();
 		itemsCarrito2.add(itemCarrito4);
 		itemsCarrito2.add(itemCarrito5);
 		itemsCarrito2.add(itemCarrito2);
 		
-		List<ItemCarrito> itemsCarrito3 = new ArrayList<ItemCarrito>();
+		List<ItemCarrito> itemsCarrito3 = new ArrayList<>();
 		itemsCarrito3.add(itemCarrito1);
 		itemsCarrito3.add(itemCarrito3);
 		itemsCarrito3.add(itemCarrito4);
@@ -146,7 +146,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de inserción de un carrito con cliente nulo")
-	public void agregarCarrito_ClienteNulo() 
+	public void testAgregarCarrito_ClienteNulo() 
 	{
 		//Arrange:
 		LocalDate fecha = LocalDate.of(2024, 9, 25); //Definimos una fecha.
@@ -159,7 +159,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de inserción de un carrito cuando ya existe en la lista")
-	public void agregarCarrito_YaExiste() 
+	public void testAgregarCarrito_YaExiste() 
 	{
 		//Arrange:
 		Carrito carrito = admCarrito.getLstCarrito().get(0);
@@ -173,7 +173,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de inserción de un carrito cuando no existe en la lista y el cliente existe")
-	public void agregarCarrito_Agregado() 
+	public void testAgregarCarrito_Agregado() 
 	{
 		//Arrange:
 		LocalDate fecha = LocalDate.of(2024, 9, 26); //Definimos la fecha del nuevo carrito.
@@ -201,7 +201,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba del cálculo del total de todos los carritos sumados en un mes y año específicos con un mes inválido")
-	public void calcularTotalMesAnio_MesInvalido() 
+	public void testCalcularTotalMesAnio_MesInvalido() 
 	{
 		//Arrange:
 		int mes = 13; //Definimos el mes del caso de prueba.
@@ -213,7 +213,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba del cálculo del total de todos los carritos sumados en un mes y año específicos con un mes válido")
-	public void calcularTotalMesAnio_MesValido() 
+	public void testCalcularTotalMesAnio_MesValido() 
 	{
 		//Arrange:
 		int mes = 9; //Definimos el mes del caso de prueba.
@@ -222,7 +222,7 @@ class AdmCarritoUnitTest
 		float totalObtenido = 0; //Inicializamos el total obtenido.
 		
 		//Simulamos el método estático Funciones.traerCantDiasDeUnMes:
-        try (MockedStatic<Funciones> funcionesMock = mockStatic(Funciones.class)) 
+        try(MockedStatic<Funciones> funcionesMock = mockStatic(Funciones.class)) 
         {
             //Simulamos el retorno de traerCantDiasDeUnMes:
             funcionesMock.when(() -> Funciones.traerCantDiasDeUnMes(anio, mes)).thenReturn(30);
@@ -244,7 +244,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba del cálculo del total de todos los carritos en una fecha en específico")
-	public void calcularTotalFecha() 
+	public void testCalcularTotalFecha() 
 	{
 		//Arrange:
 		LocalDate fecha = LocalDate.of(2024, 9, 22); //Definimos la fecha del caso de prueba.
@@ -260,7 +260,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba del cálculo del total de todos los carritos entre dos fechas (extremos incluidos)")
-	public void calcularTotalFechaAFecha() 
+	public void testCalcularTotalFechaAFecha() 
 	{
 		//Arrange:
 		LocalDate fechaDesde = LocalDate.of(2024, 9, 22); //Definimos la fecha de inicio del caso de prueba.
@@ -277,7 +277,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de eliminación de un carrito inexistente")
-	public void eliminarCarrito_NoExiste() 
+	public void testEliminarCarrito_NoExiste() 
 	{
 		//Arrange:
 		int idCarritoEliminar = 4; //Definimos el id del carrito a eliminar.
@@ -288,7 +288,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de eliminación de un carrito existente")
-	public void eliminarCarrito_Eliminado() 
+	public void testEliminarCarrito_Eliminado() 
 	{
 		//Arrange:
 		int idCarritoEliminar = 1; //Definimos el id del carrito a eliminar.
@@ -313,7 +313,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito por su id cuando no existe el carrito")
-	public void traerCarritoPorId_NoExiste() 
+	public void testTraerCarritoPorId_NoExiste() 
 	{
 		//Arrange:
 		Carrito carritoObtenido = null; //Definimos un carrito como nulo.
@@ -327,7 +327,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito por su id cuando existe el carrito")
-	public void traerCarritoPorId_Existe() 
+	public void testTraerCarritoPorId_Existe() 
 	{
 		int idCarritoEsperado = 1; //Definimos el id que esperamos que tenga el carrito obtenido.
 		int idCarritoObtenido = 0; //Inicializamos el id del carrito obtenido.
@@ -341,7 +341,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito por fecha, hora y cliente cuando no existe el carrito")
-	public void traerCarritoPorFechaHoraCliente_NoExiste() 
+	public void testTraerCarritoPorFechaHoraCliente_NoExiste() 
 	{
 		//Arrange:
 		Carrito carritoObtenido = null; //Definimos un carrito como nulo.
@@ -358,7 +358,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito por fecha, hora y cliente cuando existe el carrito")
-	public void traerCarritoPorFechaHoraCliente_Existe() 
+	public void testTraerCarritoPorFechaHoraCliente_Existe() 
 	{
 		//Arrange:
 		Carrito carrito = admCarrito.getLstCarrito().get(0); //Obtenemos el carrito que queremos encontrar para pasar esos datos al método.
@@ -378,7 +378,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito con determinado producto cuando no hay carritos con ese producto")
-	public void traerCarritoPorProducto_NoExiste() 
+	public void testTraerCarritoPorProducto_NoExiste() 
 	{
 		//Arrange:
 		Carrito carritoObtenido = null; //Definimos un carrito como nulo.
@@ -392,7 +392,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito con determinado producto cuando hay al menos un carrito con ese producto")
-	public void traerCarritoPorProducto_Existe() 
+	public void testTraerCarritoPorProducto_Existe() 
 	{
 		//Arrange:
 		int idCarritoEsperado = 1; //Definimos el id del carrito que esperamos obtener.
@@ -407,7 +407,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito de determinado cliente cuando el cliente no tiene carritos asociados")
-	public void traerCarritoDeCliente_NoExiste() 
+	public void testTraerCarritoDeCliente_NoExiste() 
 	{
 		//Arrange:
 		Carrito carritoObtenido = null; //Definimos un carrito como nulo.
@@ -421,7 +421,7 @@ class AdmCarritoUnitTest
 	
 	@Test
 	@DisplayName("Prueba de obtención de un carrito de determinado cliente cuando el cliente tiene por lo menos un carrito asociado")
-	public void traerCarritoDeCliente_Existe() 
+	public void testTraerCarritoDeCliente_Existe() 
 	{
 		//Arrange:
 		int idCarritoEsperado = 1; //Definimos el id del carrito que queremos encontrar.
