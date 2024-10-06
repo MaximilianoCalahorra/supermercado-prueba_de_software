@@ -200,6 +200,8 @@ class AdmTarjetaUnitTest
 	    //Assert:
 	    Tarjeta tarjetaModificada = admTarjeta.traerTarjeta(id);
 	    verify(tarjetaModificada).setNumero(numeroNuevo);
+	    verify(tarjetaModificada).setFechaVencimiento(fechaVenc);
+	    verify(tarjetaModificada).setCliente(cliente);
 	}
 
 	//EliminarTarjeta
