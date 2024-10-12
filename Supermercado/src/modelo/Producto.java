@@ -45,7 +45,15 @@ public class Producto
 	}
 	
 	//Equals:
-	public boolean equals(Producto producto) 
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+	    Producto producto = (Producto) o;
+	    return idProducto == producto.idProducto;  // Compara los productos por ID
+	}
+	
+	/*public boolean equals(Producto producto) 
 	{
 		boolean iguales = false;
 		if (this.idProducto == producto.idProducto && this.nombre.equalsIgnoreCase(producto.nombre) &&
@@ -54,7 +62,7 @@ public class Producto
 			iguales = true;
 		}
 		return iguales;
-	}
+	}*/
 	
 	//To String:
 	public String toString() 
